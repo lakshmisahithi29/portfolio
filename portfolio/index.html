@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Taqui Imam | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="floating-nav">
+        <button class="nav-btn active" data-target="home" title="Home"><i class="fa-solid fa-house"></i></button>
+        <button class="nav-btn" data-target="about" title="About"><i class="fa-solid fa-user"></i></button>
+        <button class="nav-btn" data-target="skills" title="Skills"><i class="fa-solid fa-lightbulb"></i></button>
+        <button class="nav-btn" data-target="education" title="Education"><i class="fa-solid fa-graduation-cap"></i></button>
+        <button class="nav-btn" data-target="projects" title="Projects"><i class="fa-solid fa-briefcase"></i></button>
+        <button class="nav-btn" data-target="contact" title="Contact"><i class="fa-solid fa-envelope"></i></button>
+    </nav>
+
+    <div class="container">
+        <section id="home" class="tab-content active">
+            <div class="hero">
+                <div class="hero-text">
+                    <p class="intro-p">My Name is</p>
+                    <h1>Md Taqui <br> <span>Imam .</span></h1>
+                    <h3>I am a Software Engineer & <span id="dynamic-text">Frontend Developer</span></h3>
+                    <div class="social-icons">
+                        <a href="https://github.com/lakshmisahithi29"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mandadilakshmisahithi"><i class="fa-brands fa-linkedin"></i></a>
+                        
+                    </div>
+                    <button class="resume-btn"><i class="fa-solid fa-download"></i> Download Resume</button>
+                </div>
+                <div class="hero-image">
+                    <div class="image-blob">
+                         <img src="https://via.placeholder.com/350" alt="Profile">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="tab-content">
+            <h2 class="section-title">About Me</h2>
+            <div class="content-box">
+                <p>I am a passionate Full Stack Developer with a focus on creating clean, user-friendly interfaces. I love turning complex problems into simple, beautiful designs.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="tab-content">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><span>HTML5</span><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+                <div class="skill-item"><span>CSS3</span><div class="bar"><div class="fill" style="width:90%"></div></div></div>
+                <div class="skill-item"><span>JavaScript</span><div class="bar"><div class="fill" style="width:85%"></div></div></div>
+                <div class="skill-item"><span>React</span><div class="bar"><div class="fill" style="width:80%"></div></div></div>
+            </div>
+        </section>
+
+        <section id="education" class="tab-content">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Bachelor of Computer Application</h4>
+                    <p>Ranchi University | 2023 - 2026</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Higher Secondary Schooling</h4>
+                    <p>St. Xavier's School | 2021 - 2023</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="tab-content">
+            <h2 class="section-title">My Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>WePost</h3>
+                    <p>A minimal social media platform for developers.</p>
+                    <a href="#" class="link">View Live <i class="fa-solid fa-external-link"></i></a>
+                </div>
+                <div class="project-card">
+                    <h3>DevZone</h3>
+                    <p>A community forum for tech enthusiasts.</p>
+                    <a href="#" class="link">View Live <i class="fa-solid fa-external-link"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="tab-content">
+            <h2 class="section-title">Contact Me</h2>
+            <form id="contact-form" class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="How can I help you?" rows="5" required></textarea>
+                <button type="submit" id="send-btn" class="reactive-btn">
+                    <span class="btn-text">Send Message</span>
+                    <span class="btn-icon"><i class="fa-solid fa-paper-plane"></i></span>
+                </button>
+            </form>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
