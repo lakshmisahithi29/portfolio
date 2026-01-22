@@ -1,27 +1,37 @@
-// 1. Navigation Switching
+// 1. Navigation Switching with Smooth Transition
 const navButtons = document.querySelectorAll('.nav-btn');
 const tabs = document.querySelectorAll('.tab-content');
 
 navButtons.forEach(btn => {
     btn.addEventListener('click', () => {
+        // Remove active class from all
         navButtons.forEach(b => b.classList.remove('active'));
         tabs.forEach(t => t.classList.remove('active'));
 
+        // Add active class to clicked
         btn.classList.add('active');
-        const target = btn.getAttribute('data-target');
-        document.getElementById(target).classList.add('active');
+        const targetId = btn.getAttribute('data-target');
+        const targetElement = document.getElementById(targetId);
+        
+        targetElement.classList.add('active');
+        
+        // Scroll to top of container smoothly on mobile
+        if(window.innerWidth <= 576) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     });
 });
 
-// 2. Typewriter Effect
+// 2. Optimized Typewriter Effect
 const textElement = document.getElementById('dynamic-text');
-const roles = ["Frontend developer","ML Engineer","Freelancer"];
+const roles = ["Frontend Developer", "ML Engineer", "Freelancer"];
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
 function type() {
     const currentRole = roles[roleIndex];
+    
     if (isDeleting) {
         textElement.textContent = currentRole.substring(0, charIndex - 1);
         charIndex--;
@@ -30,47 +40,44 @@ function type() {
         charIndex++;
     }
 
-    let typeSpeed = isDeleting ? 100 : 200;
+    let typeSpeed = isDeleting ? 70 : 150;
 
     if (!isDeleting && charIndex === currentRole.length) {
-        typeSpeed = 2000; // Pause at end
+        typeSpeed = 2000; // Pause at full word
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         roleIndex = (roleIndex + 1) % roles.length;
+        typeSpeed = 500;
     }
 
     setTimeout(type, typeSpeed);
 }
-type();
 
-// 3. Reactive Send Button Logic
-const contactForm = document.getElementById('contact-form');
-const sendBtn = document.getElementById('send-btn');
-const btnText = sendBtn.querySelector('.btn-text');
-const btnIcon = sendBtn.querySelector('.btn-icon i');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // Loading State
-    sendBtn.classList.add('loading');
-    btnText.textContent = 'Sending...';
-    btnIcon.className = 'fa-solid fa-spinner fa-spin';
-
-    // Simulate Network Delay
-    setTimeout(() => {
-        sendBtn.classList.remove('loading');
-        sendBtn.classList.add('success');
-        btnText.textContent = 'Sent Successfully!';
-        btnIcon.className = 'fa-solid fa-check';
-
-        // Reset Form
-        setTimeout(() => {
-            sendBtn.classList.remove('success');
-            btnText.textContent = 'Send Message';
-            btnIcon.className = 'fa-solid fa-paper-plane';
-            contactForm.reset();
-        }, 3000);
-    }, 2000);
+// Initial call
+document.addEventListener('DOMContentLoaded', type);
+window.addEventListener('scroll', () => {
+    const skillsSection = document.getElementById('skills');
+    const navBar = document.querySelector('.floating-nav');
+    
+    // Only target mobile/tablet view
+    if (window.innerWidth <= 768) {
+        // Only trigger this if the Skills tab is currently open
+        if (skillsSection.classList.contains('active')) {
+            
+            // Get the position of the skills section relative to the viewport
+            const rect = skillsSection.getBoundingClientRect();
+            
+            // 50px threshold: If the top of the section is near the top of the screen, show nav.
+            // If the user has scrolled down more than 50px into the section, hide nav.
+            if (rect.top < -50) {
+                navBar.classList.add('nav-hidden-mobile');
+            } else {
+                navBar.classList.remove('nav-hidden-mobile');
+            }
+        } else {
+            // Always show nav for other sections unless you want them to hide too
+            navBar.classList.remove('nav-hidden-mobile');
+        }
+    }
 });

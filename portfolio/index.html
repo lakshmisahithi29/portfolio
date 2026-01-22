@@ -3,71 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md Taqui Imam | Portfolio</title>
+    <title>M.Lakshmi Sahithi | Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    
     <nav class="floating-nav">
-        <button class="nav-btn active" data-target="home" title="Home"><i class="fa-solid fa-house"></i></button>
-        <button class="nav-btn" data-target="about" title="About"><i class="fa-solid fa-user"></i></button>
-        <button class="nav-btn" data-target="skills" title="Skills"><i class="fa-solid fa-lightbulb"></i></button>
-        <button class="nav-btn" data-target="education" title="Education"><i class="fa-solid fa-graduation-cap"></i></button>
-        <button class="nav-btn" data-target="projects" title="Projects"><i class="fa-solid fa-briefcase"></i></button>
-        <button class="nav-btn" data-target="contact" title="Contact"><i class="fa-solid fa-envelope"></i></button>
+        <a href="index.html" class="nav-logo" title="Reload Site">LS</a>
+        <div class="nav-links">
+            <button class="nav-btn active" data-target="home" aria-label="Home"><i class="fa-solid fa-house"></i></button>
+            <button class="nav-btn" data-target="about" aria-label="About"><i class="fa-solid fa-user"></i></button>
+            <button class="nav-btn" data-target="skills" aria-label="Skills"><i class="fa-solid fa-lightbulb"></i></button>
+            <button class="nav-btn" data-target="education" aria-label="Education"><i class="fa-solid fa-graduation-cap"></i></button>
+            <button class="nav-btn" data-target="projects" aria-label="Projects"><i class="fa-solid fa-briefcase"></i></button>
+            <button class="nav-btn" data-target="contact" aria-label="Contact"><i class="fa-solid fa-envelope"></i></button>
+        </div>
     </nav>
 
-    <div class="container">
+    <main class="container">
         <section id="home" class="tab-content active">
             <div class="hero">
                 <div class="hero-text">
                     <p class="intro-p">My Name is</p>
-                    <h1>Md Taqui <br> <span>Imam .</span></h1>
-                    <h3>I am a Software Engineer & <span id="dynamic-text">Frontend Developer</span></h3>
+                    <h1>M.Lakshmi Sahithi</h1>
+                    <h3>Software Engineer & <span id="dynamic-text"></span></h3>
                     <div class="social-icons">
-                        <a href="https://github.com/lakshmisahithi29"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/mandadilakshmisahithi"><i class="fa-brands fa-linkedin"></i></a>
-                        
+                        <a href="https://github.com/lakshmisahithi29" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mandadilakshmisahithi" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
-                    <button class="resume-btn"><i class="fa-solid fa-download"></i> Download Resume</button>
-                </div>
-                <div class="hero-image">
-                    <div class="image-blob">
-                         <img src="https://via.placeholder.com/350" alt="Profile">
-                    </div>
+                     <a href="Resume.pdf" target="_blank">
+    <button class="resume-btn">
+        <i class="fa-solid fa-download"></i> View Resume
+    </button>
+</a>
                 </div>
             </div>
         </section>
-
         <section id="about" class="tab-content">
             <h2 class="section-title">About Me</h2>
             <div class="content-box">
-                <p>I am a passionate Full Stack Developer with a focus on creating clean, user-friendly interfaces. I love turning complex problems into simple, beautiful designs.</p>
+                <p>I am a passionate Full Stack Developer focusing on creating clean, user-friendly interfaces. I love turning complex problems into simple, beautiful designs.</p>
             </div>
         </section>
 
         <section id="skills" class="tab-content">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item"><span>HTML5</span><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-                <div class="skill-item"><span>CSS3</span><div class="bar"><div class="fill" style="width:90%"></div></div></div>
-                <div class="skill-item"><span>JavaScript</span><div class="bar"><div class="fill" style="width:85%"></div></div></div>
-                <div class="skill-item"><span>React</span><div class="bar"><div class="fill" style="width:80%"></div></div></div>
-            </div>
-        </section>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-wrapper">
+        <div class="skills-column">
+            <h3>Programming Languages</h3>
+            <div class="skill-item"><span>C++</span><div class="bar"><div class="fill" style="width:90%"></div></div></div>
+            <div class="skill-item"><span>Python</span><div class="bar"><div class="fill" style="width:85%"></div></div></div>
+            <div class="skill-item"><span>Java</span><div class="bar"><div class="fill" style="width:80%"></div></div></div>
+        </div>
+
+        <div class="skills-column">
+            <h3>Database & Web</h3>
+            <div class="skill-item"><span>MySQL</span><div class="bar"><div class="fill" style="width:85%"></div></div></div>
+            <div class="skill-item"><span>HTML</span><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+            <div class="skill-item"><span>CSS (Basics)</span><div class="bar"><div class="fill" style="width:90%"></div></div></div>
+        </div>
+
+        <div class="skills-column">
+            <h3>CS Fundamentals</h3>
+            <div class="skill-item"><span>OOP</span><div class="bar"><div class="fill" style="width:85%"></div></div></div>
+            <div class="skill-item"><span>DBMS</span><div class="bar"><div class="fill" style="width:80%"></div></div></div>
+            <div class="skill-item"><span>Problem Solving</span><div class="bar"><div class="fill" style="width:90%"></div></div></div>
+        </div>
+    </div>
+</section>
 
         <section id="education" class="tab-content">
             <h2 class="section-title">Education</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <h4>Bachelor of Computer Application</h4>
-                    <p>Ranchi University | 2023 - 2026</p>
+                    <p class="school">Ranchi University | 2023 - 2026</p>
                 </div>
                 <div class="timeline-item">
                     <h4>Higher Secondary Schooling</h4>
-                    <p>St. Xavier's School | 2021 - 2023</p>
+                    <p class="school">St. Xavier's School | 2021 - 2023</p>
                 </div>
             </div>
         </section>
@@ -89,18 +105,24 @@
         </section>
 
         <section id="contact" class="tab-content">
-            <h2 class="section-title">Contact Me</h2>
-            <form id="contact-form" class="contact-form">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="How can I help you?" rows="5" required></textarea>
-                <button type="submit" id="send-btn" class="reactive-btn">
-                    <span class="btn-text">Send Message</span>
-                    <span class="btn-icon"><i class="fa-solid fa-paper-plane"></i></span>
-                </button>
-            </form>
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="connect-subtext">I'm always open to discussing new opportunities or collaborating on innovative projects.</p>
+            <div class="connect-container">
+                <a href="mailto:ruthvik0811@gmail.com" class="connect-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>ruthvik0811@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/mandadilakshmisahithi" target="_blank" class="connect-box">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>LinkedIn Profile</span>
+                </a>
+                <a href="https://github.com/lakshmisahithi29" target="_blank" class="connect-box">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub Profile</span>
+                </a>
+            </div>
         </section>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
