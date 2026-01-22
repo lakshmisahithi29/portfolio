@@ -56,28 +56,28 @@ function type() {
 
 // Initial call
 document.addEventListener('DOMContentLoaded', type);
+let lastScrollY = window.scrollY;
+const navBar = document.querySelector('.floating-nav');
+
 window.addEventListener('scroll', () => {
-    const skillsSection = document.getElementById('skills');
-    const navBar = document.querySelector('.floating-nav');
-    
-    // Only target mobile/tablet view
+    // Only run logic if on mobile view
     if (window.innerWidth <= 768) {
-        // Only trigger this if the Skills tab is currently open
-        if (skillsSection.classList.contains('active')) {
-            
-            // Get the position of the skills section relative to the viewport
-            const rect = skillsSection.getBoundingClientRect();
-            
-            // 50px threshold: If the top of the section is near the top of the screen, show nav.
-            // If the user has scrolled down more than 50px into the section, hide nav.
-            if (rect.top < -50) {
-                navBar.classList.add('nav-hidden-mobile');
-            } else {
-                navBar.classList.remove('nav-hidden-mobile');
-            }
-        } else {
-            // Always show nav for other sections unless you want them to hide too
-            navBar.classList.remove('nav-hidden-mobile');
+        const currentScrollY = window.scrollY;
+
+        // 1. Hide on Scroll Down (after scrolling at least 50px)
+        if (currentScrollY > lastScrollY && currentScrollY > 50) {
+            navBar.classList.add('nav-hidden');
+        } 
+        // 2. Show on Scroll Up
+        else if (currentScrollY < lastScrollY) {
+            navBar.classList.remove('nav-hidden');
         }
+
+        // 3. Always show when at the very top of the page
+        if (currentScrollY <= 10) {
+            navBar.classList.remove('nav-hidden');
+        }
+
+        lastScrollY = currentScrollY;
     }
-});
+}, { passive: true });

@@ -7,6 +7,9 @@
     --white: #ffffff;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.intro-p {
+    font-size: 24px;   /* adjust as needed */
+}
 
 /* --- Base Reset --- */
 * {
@@ -39,34 +42,126 @@ body {
     opacity: 0;
     pointer-events: none; /* Prevents accidental clicks while hidden */
 }
+/* --- Timeline Container --- */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 30px auto;
+    padding-left: 30px; /* Space for the line */
+}
+
+/* The Vertical Line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; /* Centers the line under the dots */
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: #e5e7eb;
+}
+
+/* Individual Item Wrapper */
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+/* The Dot on the Line */
+.timeline-dot {
+    position: absolute;
+    left: -30px;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    background: var(--primary);
+    border: 4px solid var(--white); /* White ring around the dot */
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 2px var(--primary); /* Outer blue ring */
+}
+
+/* Content Box */
+.timeline-content {
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateX(10px);
+    border-color: var(--primary);
+}
+
+.timeline-date {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--dark);
+}
+
+.timeline-content p {
+    font-size: 0.95rem;
+    color: var(--light);
+}
+
+/* --- Mobile Adjustments --- */
+@media (max-width: 576px) {
+    .timeline {
+        padding-left: 25px;
+    }
+    
+    .timeline-content {
+        padding: 15px;
+    }
+
+    .timeline-content:hover {
+        transform: none; /* Disable shift on mobile touch */
+    }
+}
 /* --- Floating Nav --- */
 .floating-nav {
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.8);
+    z-index: 2000;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: auto;
+}
+.nav-hidden {
+    transform: translate(-50%, -150%);
+}
+
+.nav-container {
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
-    padding: 8px 16px;
-    border-radius: 50px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 8px 18px;
+    border-radius: 20px; /* Makes it look like a neat box */
     display: flex;
     align-items: center;
-    z-index: 1000;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    width: max-content;
-    max-width: 95vw;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-    will-change: transform; /* Optimizes performance for mobile */
+    gap: 15px;
 }
 
 .nav-logo {
     font-weight: 800;
-    font-size: 1.4rem;
     color: var(--primary);
     text-decoration: none;
-    padding-right: 15px;
-    margin-right: 10px;
+    font-size: 1.2rem;
+    padding-right: 12px;
     border-right: 2px solid #e5e7eb;
 }
 
@@ -74,7 +169,6 @@ body {
     display: flex;
     gap: 5px;
 }
-
 .nav-btn {
     border: none;
     background: transparent;
@@ -290,9 +384,21 @@ body {
 
 /* --- Remove Skill Bars on Mobile --- */
 @media (max-width: 576px) {
+    /* Apply only to Mobile (768px and below) */
+@media (max-width: 768px) {
     .floating-nav {
-        top: 15px; /* Keep it closer to the top on mobile */
+        /* Ensure the nav has a smooth transition property */
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease !important;
+        will-change: transform;
     }
+
+    /* The "Hidden" state: Slides the box up and fades it out */
+    .nav-hidden {
+        transform: translate(-50%, -150%) !important;
+        opacity: 0 !important;
+        pointer-events: none; /* Prevents clicking buttons while hidden */
+    }
+}
     .skill-item .bar {
         display: none; /* Hides the gray background and the blue fill */
     }
