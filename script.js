@@ -1,4 +1,4 @@
-// 1. Navigation Switching with Smooth Transition
+// 1. Navigation Switching with Smooth Transition 
 const navButtons = document.querySelectorAll('.nav-btn');
 const tabs = document.querySelectorAll('.tab-content');
 
