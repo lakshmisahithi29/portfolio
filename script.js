@@ -24,7 +24,7 @@ navButtons.forEach(btn => {
 
 // 2. Optimized Typewriter Effect
 const textElement = document.getElementById('dynamic-text');
-const roles = ["Frontend Developer", "ML Engineer", "Freelancer"];
+const roles = ["Frontend Developer","ML Explorel", "Freelancer"];
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
