@@ -23,9 +23,10 @@
     color: var(--light);
     margin-bottom: 0.5rem;
     letter-spacing: -0.01em;
+    font-size: 24px;   
 }
 
-/* --- Base Reset --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -54,6 +55,7 @@ body {
 }
 
 /* This class will be toggled via JavaScript */
+
 .nav-hidden-skills {
     transform: translate(-50%, -120%);
     opacity: 0;
@@ -68,7 +70,7 @@ body {
     padding-left: 30px;
 }
 
-/* The Vertical Line */
+
 .timeline::before {
     content: '';
     position: absolute;
@@ -79,14 +81,12 @@ body {
     background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-dark) 100%);
     border-radius: 2px;
 }
-
-/* Individual Item Wrapper */
 .timeline-item {
     position: relative;
     margin-bottom: 40px;
 }
 
-/* The Dot on the Line */
+
 .timeline-dot {
     position: absolute;
     left: -30px;
@@ -106,7 +106,7 @@ body {
     box-shadow: 0 0 0 3px var(--primary), var(--shadow-lg);
 }
 
-/* Content Box */
+
 .timeline-content {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
@@ -151,7 +151,7 @@ body {
     line-height: 1.6;
 }
 
-/* --- Mobile Adjustments --- */
+
 @media (max-width: 576px) {
     .timeline {
         padding-left: 25px;
@@ -167,6 +167,7 @@ body {
 }
 
 /* --- Floating Nav --- */
+
 .floating-nav {
     position: fixed;
     top: 20px;
@@ -242,7 +243,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* --- Hero Section --- */
 .hero {
     display: flex;
     align-items: center;
@@ -364,7 +364,7 @@ body {
     }
 }
 
-/* --- Sections Common --- */
+
 .tab-content {
     display: none;
     animation: slideUp 0.6s ease forwards;
@@ -422,7 +422,7 @@ body {
     margin-bottom: 1rem;
 }
 
-/* --- Updated Skills Grid --- */
+
 .skills-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -472,7 +472,6 @@ body {
     margin-bottom: 6px;
 }
 
-/* Ensure bars match your primary theme */
 .bar {
     background: #f1f5f9;
     height: 10px;
@@ -574,6 +573,7 @@ body {
     margin-right: auto;
 }
 
+
 .connect-container {
     display: grid;
     gap: 1.25rem;
@@ -616,7 +616,8 @@ body {
     font-size: 1rem;
 }
 
-/* --- Responsive Media Queries --- */
+
+
 
 /* Mobile (≤ 576px) */
 @media (max-width: 576px) {
@@ -710,7 +711,7 @@ body {
     }
 }
 
-/* Tablet (577px – 992px) */
+
 @media (min-width: 577px) and (max-width: 992px) {
     .container { 
         padding-top: 110px; 
@@ -721,7 +722,7 @@ body {
     }
 }
 
-/* Laptop/Desktop (≥ 993px) */
+
 @media (min-width: 993px) {
     .hero-text { 
         max-width: 800px; 
